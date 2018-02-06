@@ -16,6 +16,10 @@ public class GeneradorInformacion {
         BigInteger base = new BigInteger("10");
         BigInteger resultadoMaximo = new BigInteger("0");
         BigInteger resultadoMinimo = new BigInteger("0");
+        BigInteger numMax = new BigInteger("0");
+        BigInteger numMin = new BigInteger("99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999");
+
+        System.out.println(numMax.compareTo(numMin));
         String maximo;
         String minimo;
 
@@ -49,7 +53,7 @@ public class GeneradorInformacion {
         resultadoMinimo = base.pow(numeroDigitos - 1);
 
         //control de excepcion en caso base
-        if (numeroCaracteres == 1) {
+        if (numeroDigitos == 1) {
             maximo = "10";
             minimo = "1";
         } else {
@@ -122,7 +126,20 @@ public class GeneradorInformacion {
                 }
             }
 
+            //Para calcular el mayor numero de todos
+            if (numMax.compareTo(aRandomBigInt) == -1) {
+                numMax = aRandomBigInt;
+              //  System.out.println(numMax);
+            }
+            
+            //Para calcular el menor numero de todos
+            if (numMin.compareTo(aRandomBigInt) == 1) {
+                numMin = aRandomBigInt;
+                System.out.println("Minimo");
+                System.out.println(numMin);
+            }
         }
+
     }
 
 }
